@@ -200,6 +200,7 @@ void handleSerial()
 
     Serial.read(); //discard the byte
   }
+  
   uint32_t t = millis();
   uint32_t lastAckTime;
   if((t - lastAckTime) > 1000) {
