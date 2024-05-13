@@ -200,6 +200,12 @@ void handleSerial()
 
     Serial.read(); //discard the byte
   }
+  uint32_t t = millis();
+  uint32_t lastAckTime;
+  if((t - lastAckTime) > 1000) {
+    Serial.print("Ada\n"); // Send ACK string to host
+    lastAckTime = t; // Reset counter 
+  }
   #endif
 
   // If Continuous Serial Streaming is enabled, send new LED data as bytes
